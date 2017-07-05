@@ -1,0 +1,45 @@
+body{
+	padding:5px;
+}
+.elements{
+	padding:10px;
+	margin:10px;
+	position:relative;
+}
+#slogin{
+	top:500px;
+	left:300px;
+	position:absolute;
+}
+#sid{
+	background-image:url(#s);
+	background-position:right;
+	background-repeat:no-repeat;
+	
+}
+#fid{
+	background-image:url(download.jpg);
+	background-position:right;
+	background-repeat:no-repeat;
+	
+}
+#flogin{
+	top:500px;
+	right:280px;
+	position:absolute;
+}
+#savatar{
+	width:40px;
+	height:40px;
+	top:595px;
+	left:260px;
+	position:absolute;
+}
+#favatar{
+	width:40px;
+	height:40px;
+	top:595px;
+	right:480px;
+	position:absolute;
+	
+}

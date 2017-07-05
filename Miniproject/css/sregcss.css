@@ -1,0 +1,53 @@
+#sr{
+position:absolute;
+top:200px;
+left:300px;
+
+}
+
+#fr{
+position:absolute;
+top:200px;
+right:280px;
+}
+
+.box{
+	padding:8px;
+	margin:5px;
+	position:relative;
+	font-size:15;
+}
+.d{
+	padding:8px;
+	margin:5px;
+	position:relative;
+	font-size:15;
+}
+#sd{
+	position:absolute;
+	top:500px;
+	left:300px;
+}
+#fd{
+	position:absolute;
+	top:500px;
+	right:280px;
+}
+#sdelete{
+	left:200px;
+	font-size:20;
+}
+#fdelete{
+	right:180px;
+	font-size:20;
+}
+#su{
+	position:absolute;
+	left:300px;
+	top:650px;
+}
+#fu{
+	position:absolute;
+	top:650px;
+	right:280px;
+}
