@@ -18,6 +18,7 @@
 	-webkit-transition: color 1s;
 	padding:10px;
 	
+	
 }
 .items:hover{
 	background-color:white;
@@ -46,7 +47,7 @@
 	-webkit-transition: background-color 1s;
 	-webkit-transition: color 1s;
 	}
-	#profile_button:hover{
+#profile_button:hover{
 	cursor:pointer;
 	background-color:white;
 	color:black;
@@ -60,4 +61,67 @@
 #profile_heading{
 	float:right;
 	margin-top:10px;
+}
+#discussion_ul{
+	margin-left:120px;
+	position:fixed;
+	margin-top:100px;
+	list-style:none;
+	
+	width:200px;
+	height:100px;
+	
+	
+	
+}
+.discussion_li{
+	padding:10px;
+	border-bottom:solid 1px black;
+		background-color:white;
+		-webkit-transition:background-color 1s;
+		-webkit-transition:color 1s;
+		box-shadow: 3px 3px 5px #888888;
+		width:150px;
+		z-index:-1;
+		
+		opacity:1;
+		
+}
+.discussion_li:hover{
+	background-color:grey;
+	color:white;
+	cursor:pointer;
+}
+
+.posts{
+	z-index:999;
+	height:200px;
+	padding:20px;
+	float:left;
+	width:80%;
+	margin:70px;
+	margin-left:90px;
+	margin-bottom:30px;
+	box-shadow: 5px 5px 5px #888888;
+	text-decoration:bold;
+	border:solid 1px grey;
+}
+
+#main_body{
+	float:left;
+	width:90%;
+}
+#sender_roll{
+	color:#0801c1;
+}
+.date{
+	color:#cccccc;
+}
+.comment{
+	margin-bottom:0px;
+	margin-left:40px;
+}
+#textarea_college{
+	width:90%;
+	padding:15px;
 }

@@ -78,6 +78,9 @@ $(document).ready(function(){
 	{
 		$_SESSION['userid']=$id;
 		$_SESSION['username']=$row['name'];
+		$_SESSION['department']=$row['department'];
+		$_SESSION['branch']=$row['branch'];
+		$_SESSION['profile']="student";
 		header('location:home.php');
 	}
 	}
@@ -95,6 +98,9 @@ $(document).ready(function(){
 	{
 		echo $_SESSION['userid']=$id;
 		echo $_SESSION['username']=$row['name'];
+		$_SESSION['department']=$row['department'];
+		$_SESSION['branch']=$row['branch'];
+		$_SESSION['profile']="faculty";
 		header('location:home.php');
 	}
 	}
