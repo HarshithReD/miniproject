@@ -8,17 +8,13 @@
 }
 #menu{
 		list-style:none;
-		
 }
-
 .items{
 	float:left;
 	margin:20px;
 	-webkit-transition: background-color 1s;
 	-webkit-transition: color 1s;
 	padding:10px;
-	
-	
 }
 .items:hover{
 	background-color:white;
@@ -26,10 +22,9 @@
 	cursor:pointer;
 	border-bottom:solid 3px #03abf9;
 }
-.items:target{
+.items:active{
 	background-color:white;
 	color:black;
-	
 	border-bottom:solid 3px #03abf9;
 }
 #profile_button{
@@ -44,8 +39,7 @@
 	margin-left:24px;
 	border:solid 3px #03abf9;
 	border-radius:25px;
-	-webkit-transition: background-color 1s;
-	-webkit-transition: color 1s;
+	
 	}
 #profile_button:hover{
 	cursor:pointer;
@@ -56,7 +50,6 @@
 	}
 #profile_nav{
 	list-style:none;
-	
 }
 #profile_heading{
 	float:right;
@@ -67,12 +60,8 @@
 	position:fixed;
 	margin-top:100px;
 	list-style:none;
-	
 	width:200px;
 	height:100px;
-	
-	
-	
 }
 .discussion_li{
 	padding:10px;
@@ -92,7 +81,34 @@
 	color:white;
 	cursor:pointer;
 }
-
+.profile_items{
+	
+	margin-left:1180px;
+	margin-top:100px;
+	position:fixed;
+	
+	list-style:none;
+	width:200px;
+	height:100px;
+}
+.profile_li{
+	padding:10px;
+	border-bottom:solid 1px black;
+		background-color:white;
+		-webkit-transition:background-color 1s;
+		-webkit-transition:color 1s;
+		box-shadow: 3px 3px 5px #888888;
+		width:150px;
+		z-index:-1;
+		
+		opacity:1;
+		
+}
+.profile_li:hover{
+	background-color:grey;
+	color:white;
+	cursor:pointer;
+}
 .posts{
 	z-index:999;
 	height:200px;
@@ -121,7 +137,7 @@
 	margin-bottom:0px;
 	margin-left:40px;
 }
-#textarea_college{
+.input-sm{
 	width:90%;
 	padding:15px;
 }

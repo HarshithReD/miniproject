@@ -1,0 +1,13 @@
+#profile_body{
+	float:left;
+	padding: 50px;
+	margin-top:50px;
+	margin-left:20%;
+	height:300px;
+	text-align:center;
+	box-shadow: 3px 3px 5px #888888;
+	font-size:20px;
+	font-family:Times New Roman;
+	border: 1px solid black;
+	width:800px;
+}

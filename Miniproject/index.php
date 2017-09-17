@@ -6,56 +6,69 @@ session_start();
 if(isset($_SESSION['userid'])&&(isset($_SESSION['username']))){
 header('location:home.php');
 }
+else if(isset($_SESSION['userid'])){
+	if(($_SESSION['userid'])=='admin')
+	header('location:sreg.php');
+}
 else{
 ?>
-<div id="admindiv">
-<div id="flip"><h4> ADMIN</h4></div>
-<div id="adminlogin">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="css/index_style.css" rel="stylesheet">
+<div id="flip"> ADMIN</div>
+<div id="adminlogin" style="display:none">
 <form name="f" action="index.php" method="post">
-<div id="s"><input type="text" class="sign" maxlength="15" placeholder="enter id" id="name">
-<img src="download.jpg" width="20"></div><br>
-<input type="password" name="password" class="sign" maxlength="15" placeholder="enter password"><br>
-<input type="submit" name="submit"  value="LOGIN">
+<input type="text" class="input-sm" id="admintextbox" name="admintextbox" maxlength="15" placeholder="Enter your id.." id="name">
+<img src="download.jpg" id="adminavatar" width="20"><br>
+
+<input type="password" id="apass" name="apass" class="input-sm" maxlength="15" placeholder="Enter your password.."><img src="pass.png" id="adminimg" width="23"/><br>
+<input type="submit" name="submit" class="btn btn-default" value="Login">
 </form>
 </div>
-</div>
-<div id="wrapper">
 
-<div id="slogin"><h1>Student Login</h1><br>
+
+<div id="wrapper" class="container">
+<span id="toggle"  style="display:none">login</span>
+
+
+
+
+
+<div id="slogin" class="pull_left"><h2>Student Login</h2><br><br>
 <form name="form1" action="index.php" method="post">
-<input type="text" id="sid" name="sid" class="elements" placeholder="enter your name" ><br>
-<input type="password" id="spass" name="spass" class="elements" placeholder="enter your password"><br>
+<input type="text" id="sid" name="sid" class="input-sm" placeholder="Enter your id.." >
+<img src="images.png" id="savatar" width="23"/><br>
+<input type="password" id="spass" name="spass" class="input-sm" placeholder="Enter your password.."><img src="pass.png" id="simg" width="23"/><br>
 <span id="sfeedback" style="display:none;"></span><br>
-<input type="submit" id="sub"  name="sub" value="LOGIN">
+<input type="submit" id="sub"  class="btn btn-default"  name="sub" value="Login">
 </form></div>
 
 
 
-<div id="s"><img src="images.png" id="savatar"/></div>
-<div id="f"><img src="download.jpg" id="favatar"/></div>
 
-
-
-<div id="flogin"><h1>Faculty Login</h1><br>
+<div id="flogin" class="pull_left"><h2>Faculty Login</h2><br><br>
 <form name="form2" action="index.php" method="post">
-<input type="text" id="fid" name="fid" class="elements" placeholder="enter your name"><br>
-<input type="password" id="fpass" name="fpass" class="elements" placeholder="enter your password"><br>
+<input type="text" id="fid" name="fid" class="input-sm"  placeholder="Enter your id..">
+<img src="download.jpg" id="favatar" width="21"/>
+<input type="password" id="fpass" name="fpass" class="input-sm" placeholder="Enter your password.."><img src="pass.png" id="fimg" width="23"/><br>
 <span id="ffeedback" style="display:none;"></span><br>
-<input type="submit" id="sub1"  name="sub1" value="LOGIN">
+<input type="submit" id="sub1"  class="btn btn-default"  name="sub1" value="Login">
 </form></div>
 </div>
 <?php
 }
 ?>
 <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/index_duplicate.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 
 
 <script>
 $(document).ready(function(){
     $("#flip").click(function(){
         $("#adminlogin").slideToggle("slow");
+		
     });
+	
 });
 
 </script>
@@ -66,7 +79,7 @@ $(document).ready(function(){
  $con=mysqli_connect("localhost","root","","users");
 	if(isset($_POST['sub'])){
 	 $id=$_POST['sid'];
-	 $pass=$_POST['spass'];
+	 $pass=md5($_POST['spass']);
 	 $q="SELECT * FROM `login` WHERE `roll no` = '$id' AND `password` = '$pass'";
 	 $res=mysqli_query($con,$q);
 	$rows=mysqli_num_rows($res);
@@ -78,9 +91,10 @@ $(document).ready(function(){
 	{
 		$_SESSION['userid']=$id;
 		$_SESSION['username']=$row['name'];
-		$_SESSION['department']=$row['department'];
-		$_SESSION['branch']=$row['branch'];
+		$_SESSION['section']=$row['section'];
+		$_SESSION['department']=$row['branch'];
 		$_SESSION['profile']="student";
+		$_SESSION['year']=$row['year'];
 		header('location:home.php');
 	}
 	}
@@ -101,22 +115,22 @@ $(document).ready(function(){
 		$_SESSION['department']=$row['department'];
 		$_SESSION['branch']=$row['branch'];
 		$_SESSION['profile']="faculty";
+		
 		header('location:home.php');
 	}
 	}
 ?>
 <?php
 if(isset($_POST['submit'])){
-	session_start();
-	$_SESSION['aid']='vbitadmin';
-	$_SESSION['apass']='admin';
-	if(isset($_SESSION['aid'])&&(isset($_SESSION['apass']))){
+	$adminid=$_POST['admintextbox'];
+	$adminpass=$_POST['apass'];
+	if($adminid=="admin"&&$adminpass=="admin"){
+		$_SESSION['userid']=$adminid;
 		
+			header('location:sreg.php');
 	}
-
 	else{
 		echo "Incorrect username or password";
 	}
 }
-
 ?>

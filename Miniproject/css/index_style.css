@@ -1,0 +1,86 @@
+.input-sm{
+	margin-bottom:5px;
+	padding-left:35px;
+}
+
+#savatar{
+		position:absolute;
+		left:348px;
+		top:312px;
+}
+#favatar{
+		position:absolute;
+		left:868px;
+		top:312px;
+		
+}
+#simg{
+	position:absolute;
+		left:678px;
+		top:346px;
+}
+#fimg{
+	position:absolute;
+		left:868px;
+		top:346px;
+}
+#adminimg{
+		position:absolute;
+		left:597px;
+		margin-left:100px;
+		top:79px;
+		
+}
+#adminavatar{
+	position:absolute;
+		left:583px;
+		top:45px;
+}
+#simg{
+	position:absolute;
+		left:261px;
+		top:346px;
+}
+#slogin{
+	
+	float:left;
+	margin-left:20px;
+	width: 320px;
+    padding: 40px;
+    border: 5px solid black;
+    margin: 100;
+}
+
+#flogin{
+	float:left;
+	margin-left:80px;
+	width: 320px;
+    padding: 40px;
+    border: 5px solid black;
+    margin: 100;
+}
+
+#flip{
+	padding:20px;
+	background-color:black;
+	color:white;
+	margin-top:0px;
+	text-align:center;
+	
+}
+#flip:hover{
+		cursor:pointer;
+}
+#adminlogin{
+	position:fixed;
+	background-color:white;
+	width:100%;
+	
+
+	text-align:center;
+	 padding: 40px;
+    border: 5px solid black;
+}
+#admintextbox{
+	
+}

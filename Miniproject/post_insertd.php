@@ -1,6 +1,6 @@
 <?php
 session_start();
-$json_array=["success"=>0];
+$json_array["success"]=0;
 $con=mysqli_connect("localhost","root","","discussion");
 $userid= $_SESSION['userid'];
 $date=date("Y-m-d");

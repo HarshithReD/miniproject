@@ -1,16 +1,29 @@
+#heading{
+	
+	float:left;
+	height:70px;
+	width:100%;
+	background-color:black;
+	color:white;
+}
 #sr{
 position:absolute;
-top:200px;
+top:150px;
 left:300px;
 
 }
 
+
 #fr{
 position:absolute;
-top:200px;
-right:280px;
+top:150px;
+right:300px;
 }
-
+#addclass_body{
+position:absolute;
+top:600px;
+right:250px;
+}
 .box{
 	padding:8px;
 	margin:5px;
@@ -25,13 +38,13 @@ right:280px;
 }
 #sd{
 	position:absolute;
-	top:500px;
+	top:450px;
 	left:300px;
 }
 #fd{
 	position:absolute;
-	top:500px;
-	right:280px;
+	top:450px;
+	right:260px;
 }
 #sdelete{
 	left:200px;
@@ -44,10 +57,17 @@ right:280px;
 #su{
 	position:absolute;
 	left:300px;
-	top:650px;
+	top:600px;
 }
 #fu{
 	position:absolute;
-	top:650px;
+	top:600px;
 	right:280px;
+}
+#view{
+	text-align:center;
+	top:100px;
+}
+#logout{
+	margin-left:1020px;
 }
