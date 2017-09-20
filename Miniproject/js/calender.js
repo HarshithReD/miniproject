@@ -30,7 +30,7 @@ $('#menu2').click(function(){
 	console.log($.inArray(collegeDates,yyyymmdd));
 	 console.log(collegeDates);
 	 var d=$.grep(collegeDates, function(n) { return n == yyyymmdd;});
-		if(d!=-1)
+		if(d==-1)
 		{
                  return [true, "eventshow", 'Tooltip text'];
             } else {

@@ -15,6 +15,7 @@ while($row=mysqli_fetch_assoc($res))
  		$json_array[$i]["sender"] = $row['sender'];
 	 	$json_array[$i]["message"]= $row['data'];
 	 	$json_array[$i]["date"] =$row['date'];
+	 	$json_array[$i]["comments"]=$row['comments'];
 	
 		$i++;
 }
