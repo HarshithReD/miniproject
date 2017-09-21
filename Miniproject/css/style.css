@@ -125,7 +125,7 @@ a:link .items:hover{
 }
 .posts{
 	z-index:999;
-	height:200px;
+	height:150px;
 	padding:20px;
 	float:left;
 	width:80%;
@@ -157,4 +157,22 @@ a:link .items:hover{
 }
 #textarea_class{
 	margin-left:50px;
+}
+.post_sender{
+	color:red;
+}
+.comments_section{
+
+	clear:both;
+	position:relative;
+	width:75%;
+	padding: 5px;
+	margin:3px;
+	margin-left:90px;
+box-shadow: 5px 5px 5px #888888;
+	text-decoration:bold;
+	border:solid 1px grey;
+}
+.post_date{
+color:#cccccc;	
 }

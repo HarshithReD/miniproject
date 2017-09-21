@@ -33,15 +33,23 @@ $('#main_body').append('<input type="textarea" id="textarea_college" class="inpu
 			for(i=data.rows;i>=1;i--){
 				var comments=data[i].comments;
 				var commentstrings=comments.split(';');
-				
-				$('#main_body').append('<u><div class="posts"><div class="sender"><span id="sender_roll">'+data[i].sender+' :</span> &nbsp'+data[i].message+'</div><div class="date">'+data[i].date+'</div><div class="comment"><input type="textarea" class="comment_textareac" id="comment_textareac'+i+'" rows="20" cols="190" placeholder="Write a message..."><input type="button" class="btn btn-danger" value="post" onclick="postcc(\'' + i + '\')">');
+				$('#main_body').append('<u><div class="posts"><div class="sender"><span id="sender_roll">'+data[i].sender+' :</span> &nbsp'+data[i].message+'</div><div class="date">'+data[i].date+'</div><div class="comment"><input type="textarea" class="comment_textareac" id="comment_textareac'+i+'" rows="20" cols="190" placeholder="Write a message..."><input type="button" class="btn btn-danger" value="post" onclick="postcc(\'' + i + '\')"><input type="button" class="btn btn-default" value="View Comments" onclick="viewcomments(\''+i+'\')"></div></div>');
+		
 				$.each(commentstrings,function(key,value){
+					if(key<=2){
 					var splittedcomment=value.split(',');
 					var commentsender=splittedcomment[0];
 					var commentdata=splittedcomment[1];
 					var commentdate=splittedcomment[2];
-					$('main_body').append('<div class="post_sender">'+commentsender+':</div><div class="post_data">'+commentdata+'</div><div class="post_date">'+commentdate+'</div></div></div>')
+					if(commentsender==null||commentdata==null||commentdate==null){
+
+					}else{
+					
+					$('#main_body').append('<div class="comments_section" name="comment_section'+i+'" style="display:none;"><span class="post_sender">'+commentsender+':</span> &nbsp'+commentdata+'<div class="post_date">'+commentdate+'</div></div>')
+				}
+				}
 				});
+			$('#mainbody').append('<hr width="100%" height="3px"/>');
 				}
 				
 			}
@@ -63,13 +71,29 @@ function departmentposts(){
 			}else{
 			
 			for(i=data.rows;i>=1;i--){
-				$('#main_body').append('<u><div id="post'+i+'"class="posts"><div class="sender"><span id="sender_roll">'+data[i].sender+' :</span> &nbsp'+data[i].message+'</div><div class="date">'+data[i].date+'</div><div class="comment"><input type="textarea" class="comment_textaread" rows="2" cols="190" placeholder="Write a message..."><input type="button" class="comment_sendd" value="post"></div></div><hr width="100%" height="3px"/>');
+				var comments=data[i].comments;
+				var commentstrings=comments.split(';');
 				
+				$('#main_body').append('<u><div id="post'+i+'"class="posts"><div class="sender"><span id="sender_roll">'+data[i].sender+' :</span> &nbsp'+data[i].message+'</div><div class="date">'+data[i].date+'</div><div class="comment"><input type="textarea" class="comment_textareac" id="comment_textareac'+i+'" rows="20" cols="190" placeholder="Write a message..."><input type="button" class="btn btn-danger" value="post" onclick="postdd(\'' + i + '\')"><input type="button" class="btn btn-default" value="View Comments" onclick="viewcomments(\''+i+'\')"></div></div>');
+				$.each(commentstrings,function(key,value){
+					if(key<=2){
+					var splittedcomment=value.split(',');
+					var commentsender=splittedcomment[0];
+					var commentdata=splittedcomment[1];
+					var commentdate=splittedcomment[2];
+					if(commentsender==null||commentdata==null||commentdate==null){
+
+					}else{
+					
+					$('#main_body').append('<div class="comments_section" name="comment_section'+i+'" style="display:none;"><span class="post_sender">'+commentsender+':</span> &nbsp'+commentdata+'<div class="post_date">'+commentdate+'</div></div>')
+				}
 				}
 				
-			}
+			});
+				$('#mainbody').append('<hr width="100%" height="3px"/>');
 		}
-		
+	}
+	}	
 	});
 }
 function post(){
@@ -143,16 +167,33 @@ function classposts(){
 			}else{
 			var i=0;
 			for(i=data.rows;i>=1;i--){
-				$('#main_body').append('<u><div id="post'+i+'"class="posts"><div class="sender"><span id="sender_roll">'+data[i].sender+' :</span> &nbsp'+data[i].message+'</div><div class="date">'+data[i].date+'</div><div class="comment"><input type="textarea" class="comment_textaread" rows="2" cols="190" placeholder="Write a message..."><input type="button" class="comment_sendd" value="post"></div></div><hr width="100%" height="3px"/>');
-			}
-		}
-		} 
-	});	
-		}
-	}
-});
+				var comments=data[i].comments;
+				var commentstrings=comments.split(';');
+				
+				$('#main_body').append('<u><div id="post'+i+'"class="posts"><div class="sender"><span id="sender_roll">'+data[i].sender+' :</span> &nbsp'+data[i].message+'</div><div class="date">'+data[i].date+'</div><div class="comment"><input type="textarea" class="comment_textareac" id="comment_textareac'+i+'" rows="20" cols="190" placeholder="Write a message..."><input type="button" class="btn btn-danger" value="post" onclick="postccl(\'' + i + '\')"><input type="button" class="btn btn-default" value="View Comments" onclick="viewcomments(\''+i+'\')"></div></div>');
+				$.each(commentstrings,function(key,value){
+					if(key<=2){
+					var splittedcomment=value.split(',');
+					var commentsender=splittedcomment[0];
+					var commentdata=splittedcomment[1];
+					var commentdate=splittedcomment[2];
+					if(commentsender==null||commentdata==null||commentdate==null){
 
-		
+					}else{
+					
+					$('#main_body').append('<div class="comments_section" name="comment_section'+i+'" style="display:none;"><span class="post_sender">'+commentsender+':</span> &nbsp'+commentdata+'<div class="post_date">'+commentdate+'</div></div>');
+				}
+			}
+		});
+				$('#mainbody').append('<hr width="100%" height="3px"/>');
+		} 
+	}
+		}
+	});
+}
+}
+
+});
 }
 function post_class(){
 	var posted_data=$('#textarea_class').val();
@@ -251,10 +292,27 @@ function getClass(index){
 
 			var i=0;
 			for(i=data.rows;i>=1;i--){
-				$('#main_body').append('<u><div id="post'+i+'"class="posts"><div class="sender"><span id="sender_roll">'+data[i].sender+' :</span> &nbsp'+data[i].message+'</div><div class="date">'+data[i].date+'</div><div class="comment"><input type="textarea" class="comment_textaread" rows="2" cols="190" placeholder="Write a message..."><input type="button" class="comment_sendd" value="post"></div></div><hr width="100%" height="3px"/>');
+				var comments=data[i].comments;
+				var commentstrings=comments.split(';');
+				
+				$('#main_body').append('<u><div id="post'+i+'"class="posts"><div class="sender"><span id="sender_roll">'+data[i].sender+' :</span> &nbsp'+data[i].message+'</div><div class="date">'+data[i].date+'</div><div class="comment"><input type="textarea" class="comment_textareac" id="comment_textareac'+i+'" rows="20" cols="190" placeholder="Write a message..."><input type="button" class="btn btn-danger" value="post" onclick="postcclf(\'' + i + '\')"><input type="button" class="btn btn-default" value="View Comments" onclick="viewcomments(\''+i+'\')"></div></div><hr width="100%" height="3px"/>');
+				$.each(commentstrings,function(key,value){
+					if(key<=2){
+					var splittedcomment=value.split(',');
+					var commentsender=splittedcomment[0];
+					var commentdata=splittedcomment[1];
+					var commentdate=splittedcomment[2];
+					if(commentsender==null||commentdata==null||commentdate==null){
+
+					}else{
+					
+					$('#main_body').append('<div class="comments_section" name="comment_section'+i+'" style="display:none;"><span class="post_sender">'+commentsender+':</span> &nbsp'+commentdata+'<div class="date">'+commentdate+'</div></div>')
+				}
 			}
-		} 
+		}); 
 	}
+}
+}
 	});	
 		classposts();
 	
@@ -279,4 +337,73 @@ function getClass(index){
 			}
 		});
 		
+	}function postccl(index){
+		var x='comment_textareac'+index;
+
+		var comment=$('#'+x).val();
+		
+		$.ajax({
+			url:"postcommentscls.php",
+			data:{comments:comment,index:index},
+			type:"post",
+			dataType:"json",
+			success:function(data){
+
+				if(data.success==1){
+				alert('comment posted!!');
+				classposts();
+			}
+			}
+		});
+		
+	}
+	function postcclf(index){
+		var x='comment_textareac'+index;
+
+		var comment=$('#'+x).val();
+		var year=sessionStorage.getItem('classyear');
+		var department=sessionStorage.getItem('classdepartment');
+		var section=sessionStorage.getItem('classsection');
+		
+		$.ajax({
+			url:"postcommentsclsf.php",
+			data:{comments:comment,index:index,year:year,department:department,section:section},
+			type:"post",
+			dataType:"json",
+			success:function(data){
+
+				if(data.success==1){
+				alert('comment posted!!');
+				classposts();
+			}
+			}
+		});
+		
+	}
+	function postdd(index){
+		var x='comment_textareac'+index;
+
+		var comment=$('#'+x).val();
+		
+		$.ajax({
+			url:"postcommentsd.php",
+			data:{comments:comment,index:index},
+			type:"post",
+			dataType:"json",
+			success:function(data){
+
+				if(data.success==1){
+				alert('comment posted!!');
+				departmentposts();
+			}
+			}
+		});
+		
+	}
+	 function viewcomments(index){
+	 	$('div[name="commentheading'+index+'"]').slideToggle();
+
+			$('div[name="comment_section'+index+'"]').slideToggle();
+
+
 	}
